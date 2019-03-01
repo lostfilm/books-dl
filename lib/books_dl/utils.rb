@@ -19,7 +19,7 @@ module BooksDL
         (num + Integer("0x#{chars.join}")) % 64
       end
       decode_hex = Digest::SHA256.hexdigest("#{download_token[0...partition]}#{file_path}#{download_token[partition..]}")
-      self.class.hex_string_to_byte(decode_hex)
+      hex_string_to_byte(decode_hex)
     end
 
     def xor_decoder(url, encrypted_content)
@@ -60,6 +60,12 @@ module BooksDL
 
     def self.img_decode
       # TODO
+    end
+
+    private
+
+    def hex_string_to_byte(hex)
+      self.class.hex_string_to_byte(hex)
     end
   end
 end
