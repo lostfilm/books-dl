@@ -1,37 +1,31 @@
 module BooksDL
   class Utils
-    attr_accessor :download_token
-
-    def initialize(download_token:)
-      @download_token = download_token.strip
-    end
-
-    def self.hex_string_to_byte(hex)
+    def self.hex_to_byte(hex)
       return [] unless hex.is_a?(String)
 
       hex.scan(/../).map(&:hex)
     end
 
-    def get_real(url)
+    def self.generate_key(url, download_token)
       file_path = CGI.unescape(url.match(%r{https://(.*?/){3}.*?(?<rest_part>/.+)})[:rest_part])
       md5_chars = Digest::MD5.hexdigest(file_path).split('')
       partition = md5_chars.each_slice(4).reduce(0) do |num, chars|
         (num + Integer("0x#{chars.join}")) % 64
       end
       decode_hex = Digest::SHA256.hexdigest("#{download_token[0...partition]}#{file_path}#{download_token[partition..]}")
-      hex_string_to_byte(decode_hex)
+
+      hex_to_byte(decode_hex)
     end
 
-    def xor_decoder(url, encrypted_content)
-      decode = get_real(url)
+    def self.decode_xor(key, encrypted_content)
       count = 0
       tmp = []
       bytes = encrypted_content.bytes
 
       (0...bytes.size).each do |idx|
-        tmp[idx] = bytes[idx] ^ decode[count]
+        tmp[idx] = bytes[idx] ^ key[count]
         count += 1
-        count = 0 if count >= decode.size
+        count = 0 if count >= key.size
       end
 
       tmp = tmp[3..] if (tmp[0] == 239) && (tmp[1] == 187) && (tmp[2] == 191)
@@ -50,23 +44,13 @@ module BooksDL
       result.force_encoding('utf-8')
     end
 
-    def self.img_decode
+    def self.img_checksum
       seed = %w[0 6 9 3 1 4 7 1 8 0 5 5 9 A A C]
       (0...seed.size).each do |idx|
         rand_idx = (0...seed.size).to_a.sample
         seed[idx], seed[rand_idx] = seed[rand_idx], seed[idx]
       end
       seed.join
-    end
-
-    private
-
-    def hex_string_to_byte(hex)
-      self.class.hex_string_to_byte(hex)
-    end
-
-    def img_decode
-      self.class.img_decode
     end
   end
 end
