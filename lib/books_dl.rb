@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
 require 'json'
+require 'digest'
+
 Bundler.require(:default)
 
 module BooksDL; end
