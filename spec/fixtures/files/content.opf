@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package version="3.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" prefix="ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/">
+	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<meta name="generator" content="Adobe InDesign 13.0" />
+		<meta name="cover" content="x1.png" />
+		<meta property="ibooks:specified-fonts">true</meta>
+		<dc:title>迷霧之子—執法鎔金：自影</dc:title>
+		<dc:creator>布蘭登．山德森(Brandon Sanderson)</dc:creator>
+		<dc:subject>奇幻小說</dc:subject>
+		<dc:description>暗夜寂靜之中，誰也逃不過心魔的爪痕來襲  身為傳奇執法者，同時擁有鎔金技藝「射幣」和藏金技藝「掠影」的瓦希黎恩．拉德利安爵爺，雖然天賦異稟並深受敬重，卻格格不入於依藍戴城上流社會，始終難以忘懷從前在治外之地無拘無束的自由，以及那位如火花般一閃而逝的女子。 儘管心中的陰影揮之不去，瓦希黎恩依然恪守本分，堅定維繫家族興衰大業以及聯姻婚約，並與助手偉恩共同搭檔合作，在局勢混亂、人民躁動的伊藍戴城裡，一如以往在黑夜裡維護正義； 在一次追捕要犯的追逐戰之中，他卻在人群裡看到了那張應該已經死去的熟悉臉孔——那個殺了蕾希的男人…… 危險重重來犯，過去步步進逼，瓦希黎恩在內憂外患交攻之下，要如何面對不肯放過自己的幽魂？</dc:description>
+		<dc:publisher>城邦出版集團 奇幻基地</dc:publisher>
+		<dc:date>2017-11-02</dc:date>
+		<dc:rights>城邦出版集團 奇幻基地</dc:rights>
+		<dc:language>ja-JP</dc:language>
+		<dc:language>zh-TW</dc:language>
+		<meta property="dcterms:modified">2017-10-30T03:09:39Z</meta>
+		<dc:identifier id="bookid">布蘭登．山德森(Brandon Sanderson)</dc:identifier>
+		<meta property="ibooks:version">1.0</meta>
+        <!-- CITE Book Version 1.0 -->
+	</metadata>
+	<manifest>
+		<item id="cover" href="cover.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098" href="1HB098.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-1" href="1HB098-1.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-2" href="1HB098-2.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-3" href="1HB098-3.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-4" href="1HB098-4.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-5" href="1HB098-5.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-6" href="1HB098-6.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-7" href="1HB098-7.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-8" href="1HB098-8.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-9" href="1HB098-9.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-10" href="1HB098-10.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-11" href="1HB098-11.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-12" href="1HB098-12.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-13" href="1HB098-13.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-14" href="1HB098-14.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-15" href="1HB098-15.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-16" href="1HB098-16.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-17" href="1HB098-17.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-18" href="1HB098-18.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-19" href="1HB098-19.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-20" href="1HB098-20.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-21" href="1HB098-21.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-22" href="1HB098-22.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-23" href="1HB098-23.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-24" href="1HB098-24.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-25" href="1HB098-25.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-26" href="1HB098-26.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-27" href="1HB098-27.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-28" href="1HB098-28.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-29" href="1HB098-29.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-30" href="1HB098-30.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-31" href="1HB098-31.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-32" href="1HB098-32.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-33" href="1HB098-33.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-34" href="1HB098-34.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-35" href="1HB098-35.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-36" href="1HB098-36.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-37" href="1HB098-37.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-38" href="1HB098-38.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-39" href="1HB098-39.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-40" href="1HB098-40.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-41" href="1HB098-41.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-42" href="1HB098-42.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-43" href="1HB098-43.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-44" href="1HB098-44.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-45" href="1HB098-45.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-46" href="1HB098-46.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-47" href="1HB098-47.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-48" href="1HB098-48.xhtml" media-type="application/xhtml+xml" />
+		<item id="x1HB098-49" href="1HB098-49.xhtml" media-type="application/xhtml+xml" />
+		<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml" />
+		<item id="toc" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav" />
+		<item id="style_2.1.2.css" href="css/style_2.1.2.css" media-type="text/css" />
+		<item id="x1.png" href="image/1.png" media-type="image/png" properties="cover-image" />
+		<item id="x1HB098.jpg" href="image/1HB098.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_006.jpg" href="image/1HB098_006.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_010.jpg" href="image/1HB098_010.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_011.jpg" href="image/1HB098_011.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_012.jpg" href="image/1HB098_012.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_013.jpg" href="image/1HB098_013.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_026.jpg" href="image/1HB098_026.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_027.jpg" href="image/1HB098_027.jpg" media-type="image/jpeg" />
+		<item id="x1HB098_029.jpg" href="image/1HB098_029.jpg" media-type="image/jpeg" />
+		<item id="x2.jpg" href="image/2.jpg" media-type="image/jpeg" />
+	</manifest>
+	<spine toc="ncx">
+		<itemref idref="cover" linear="no" />
+		<itemref idref="x1HB098" />
+		<itemref idref="x1HB098-1" />
+		<itemref idref="x1HB098-2" />
+		<itemref idref="x1HB098-3" />
+		<itemref idref="x1HB098-4" />
+		<itemref idref="x1HB098-5" />
+		<itemref idref="x1HB098-6" />
+		<itemref idref="x1HB098-7" />
+		<itemref idref="x1HB098-8" />
+		<itemref idref="x1HB098-9" />
+		<itemref idref="x1HB098-10" />
+		<itemref idref="x1HB098-11" />
+		<itemref idref="x1HB098-12" />
+		<itemref idref="x1HB098-13" />
+		<itemref idref="x1HB098-14" />
+		<itemref idref="x1HB098-15" />
+		<itemref idref="x1HB098-16" />
+		<itemref idref="x1HB098-17" />
+		<itemref idref="x1HB098-18" />
+		<itemref idref="x1HB098-19" />
+		<itemref idref="x1HB098-20" />
+		<itemref idref="x1HB098-21" />
+		<itemref idref="x1HB098-22" />
+		<itemref idref="x1HB098-23" />
+		<itemref idref="x1HB098-24" />
+		<itemref idref="x1HB098-25" />
+		<itemref idref="x1HB098-26" />
+		<itemref idref="x1HB098-27" />
+		<itemref idref="x1HB098-28" />
+		<itemref idref="x1HB098-29" />
+		<itemref idref="x1HB098-30" />
+		<itemref idref="x1HB098-31" />
+		<itemref idref="x1HB098-32" />
+		<itemref idref="x1HB098-33" />
+		<itemref idref="x1HB098-34" />
+		<itemref idref="x1HB098-35" />
+		<itemref idref="x1HB098-36" />
+		<itemref idref="x1HB098-37" />
+		<itemref idref="x1HB098-38" />
+		<itemref idref="x1HB098-39" />
+		<itemref idref="x1HB098-40" />
+		<itemref idref="x1HB098-41" />
+		<itemref idref="x1HB098-42" />
+		<itemref idref="x1HB098-43" />
+		<itemref idref="x1HB098-44" />
+		<itemref idref="x1HB098-45" />
+		<itemref idref="x1HB098-46" />
+		<itemref idref="x1HB098-47" />
+		<itemref idref="x1HB098-48" />
+		<itemref idref="x1HB098-49" />
+	</spine>
+	<guide>
+		<reference type="cover" href="cover.xhtml" title="Cover" />
+	</guide>
+</package>
