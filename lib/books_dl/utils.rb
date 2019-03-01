@@ -54,8 +54,10 @@ module BooksDL
       # TODO
     end
 
-    def self.pad_left
-      # TODO
+    def self.pad_left(str)
+      return str if str.length > 7
+
+      str.rjust(8, '0')
     end
 
     def self.img_decode
