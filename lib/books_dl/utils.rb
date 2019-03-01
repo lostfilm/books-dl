@@ -22,8 +22,32 @@ module BooksDL
       self.class.hex_string_to_byte(decode_hex)
     end
 
-    def self.xor_decoder
-      # TODO
+    def xor_decoder(url, encrypted_content)
+      decode = get_real(url)
+      count = 0
+      tmp = []
+      bytes = encrypted_content.bytes
+
+      (0...bytes.size).each do |idx|
+        tmp[idx] = bytes[idx] ^ decode[count]
+        count += 1
+        count = 0 if count >= decode.size
+      end
+
+      tmp = tmp[3..] if (tmp[0] == 239) && (tmp[1] == 187) && (tmp[2] == 191)
+
+      result = if tmp.size > 10_000
+                 count2 = (tmp.size / 10_000.0).ceil
+                 (0...count2).each do |idx|
+                   tmp[idx] = tmp[idx * 10_000...(idx + 1) * 10_000]
+                 end
+
+                 tmp[0..count2]
+               else
+                 tmp
+               end.pack('c*')
+
+      result.force_encoding('utf-8')
     end
 
     def self.decode_data
