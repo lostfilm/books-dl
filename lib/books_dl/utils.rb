@@ -1,7 +1,9 @@
 module BooksDL
   class Utils
     def self.hex_string_to_byte(hex)
-      # TODO
+      return [] unless hex.is_a?(String)
+
+      hex.scan(/../).map(&:hex)
     end
 
     def self.xor_decoder
