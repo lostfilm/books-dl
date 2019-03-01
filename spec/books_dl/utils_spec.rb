@@ -21,6 +21,19 @@ describe BooksDL::Utils do
     end
   end
 
+  describe '.pad_left' do
+    it 'return original string when string#size > 7' do
+      expect(described_class.pad_left('12345678')).to eq '12345678'
+      expect(described_class.pad_left('999999999')).to eq '999999999'
+    end
+
+    it 'return padded string when string#size <= 7' do
+      expect(described_class.pad_left('123')).to eq '00000123'
+      expect(described_class.pad_left('1234')).to eq '00001234'
+      expect(described_class.pad_left('1')).to eq '00000001'
+    end
+  end
+
   describe '#get_real' do
     let(:url) { 'https://streaming-ebook.books.com.tw/V1.0/Streaming/book/DD0CB3/952170/OEBPS/content.opf' }
     let(:url2) { 'https://streaming-ebook.books.com.tw/V1.0/Streaming/book/DD0CB3/952170/META-INF/container.xml' }
