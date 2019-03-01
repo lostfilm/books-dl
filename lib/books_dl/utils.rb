@@ -50,24 +50,23 @@ module BooksDL
       result.force_encoding('utf-8')
     end
 
-    def self.decode_data
-      # TODO
-    end
-
-    def self.pad_left(str)
-      return str if str.length > 7
-
-      str.rjust(8, '0')
-    end
-
     def self.img_decode
-      # TODO
+      seed = %w[0 6 9 3 1 4 7 1 8 0 5 5 9 A A C]
+      (0...seed.size).each do |idx|
+        rand_idx = (0...seed.size).to_a.sample
+        seed[idx], seed[rand_idx] = seed[rand_idx], seed[idx]
+      end
+      seed.join
     end
 
     private
 
     def hex_string_to_byte(hex)
       self.class.hex_string_to_byte(hex)
+    end
+
+    def img_decode
+      self.class.img_decode
     end
   end
 end
