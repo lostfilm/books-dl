@@ -14,7 +14,7 @@ describe BooksDL::Utils do
       return_value = described_class.hex_string_to_byte(hex)
 
       expect(return_value).to be_a Array
-      expect(return_value).to match_array(bytes_array)
+      expect(return_value).to eq(bytes_array)
     end
   end
 end
