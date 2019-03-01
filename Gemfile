@@ -6,6 +6,5 @@ group :development do
 end
 
 gem 'http'
-gem 'http-cookie'
 gem 'nokogiri'
 gem 'rubyzip', '>= 1.0.0'
