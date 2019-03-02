@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler'
 require 'json'
 require 'digest'
+require 'io/console'
 
 Bundler.require(:default)
 
