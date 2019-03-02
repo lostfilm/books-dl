@@ -3,6 +3,7 @@ require 'bundler'
 require 'json'
 require 'digest'
 require 'io/console'
+require 'ostruct'
 
 Bundler.require(:default)
 
