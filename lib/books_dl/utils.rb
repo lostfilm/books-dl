@@ -36,12 +36,15 @@ module BooksDL
                    tmp[idx] = tmp[idx * 10_000...(idx + 1) * 10_000]
                  end
 
-                 tmp[0..count2]
+                 tmp[0...count2].reduce('') { |str, bytes| str << bytes.pack('c*') }
                else
-                 tmp
-               end.pack('c*')
+                 tmp.pack('c*')
+               end
 
       result.force_encoding('utf-8')
+    rescue
+      # ap result
+      raise
     end
 
     def self.img_checksum

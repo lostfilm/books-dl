@@ -1,8 +1,10 @@
 module BooksDL
   class API
-    attr_reader :current_cookie
+    attr_reader :current_cookie, :book_id, :encoded_token
 
     COOKIE_FILE_NAME = 'cookie.json'.freeze
+    IMAGE_EXTENSIONS = %w[.bmp .gif .ico .jpeg .jpg .tiff .tif .svg .png .webp].freeze
+    NO_AUTH_EXTENSIONS = %w[css].freeze
 
     # API ENDPOINTS
     #
@@ -18,34 +20,58 @@ module BooksDL
     BOOK_DL_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/BookDownLoadURL'.freeze
     # rubocop:enable Metrics/LineLength
 
-    def initialize
+    def initialize(book_id)
+      @book_id = book_id
       load_existed_cookies
+      @encoded_token ||= CGI.escape(info.download_token)
+    end
+
+    def fetch(path)
+      url = "#{info.download_link}#{path}"
+      ext = File.extname(path).downcase
+
+      if NO_AUTH_EXTENSIONS.include?(ext)
+        get(url).body.to_s
+      elsif IMAGE_EXTENSIONS.include?(ext)
+        checksum = Utils.img_checksum
+        resp = get("#{url}?checksum=#{checksum}&DownloadToken=#{encoded_token}")
+
+        resp.body.to_s
+      else
+        key = Utils.generate_key(url, info.download_token)
+        resp = get("#{url}?DownloadToken=#{encoded_token}")
+
+        Utils.decode_xor(key, resp.body.to_s)
+      end
     end
 
     # return Struct of [:book_uni_id, :download_link, :download_token, :size, :encrypt_type]
-    def fetch_book_infos(book_id)
-      login
+    def info
+      @info ||= begin
+        login
 
-      data = {
-        form: {
-          device_id: '2b2475e7-da58-4cfe-aedf-ab4e6463757b',
-          language: 'zh-TW',
-          os_type: 'WEB',
-          os_version: default_headers[:'user-agent'],
-          screen_resolution: '1680X1050',
-          screen_dpi: 96,
-          device_vendor: 'Google Inc.',
-          device_model: 'web'
+        data = {
+          form: {
+            device_id: '2b2475e7-da58-4cfe-aedf-ab4e6463757b',
+            language: 'zh-TW',
+            os_type: 'WEB',
+            os_version: default_headers[:'user-agent'],
+            screen_resolution: '1680X1050',
+            screen_dpi: 96,
+            device_vendor: 'Google Inc.',
+            device_model: 'web'
+          }
         }
-      }
-      headers = {
-        accept: 'application/json, text/javascript, */*; q=0.01',
-        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        Origin: 'https://viewer-ebook.books.com.tw',
-        Referer: 'https://viewer-ebook.books.com.tw/viewer/epub/web/?book_uni_id=E050017049_reflowable_normal',
-      }
 
-      if current_cookie['CmsToken'].nil?
+        headers = {
+          accept: 'application/json, text/javascript, */*; q=0.01',
+          'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          Origin: 'https://viewer-ebook.books.com.tw',
+          Referer: 'https://viewer-ebook.books.com.tw/viewer/epub/web/?book_uni_id=E050017049_reflowable_normal',
+        }
+
+        # remove old cookies
+        current_cookie.reject! { |key| %w[CmsToken redirect_uri normal_redirect_uri DownloadToken].include?(key) }
         puts '註冊 Fake device 中...'
         post(DEVICE_REG_URL, data, headers)
 
@@ -54,15 +80,10 @@ module BooksDL
         login_uri = JSON.parse(resp.body.to_s).fetch('login_uri')
         code = get(login_uri).headers['Location'].split('&code=').last
         get("#{OAUTH_ENDPOINT_URL}#{code}")
-      else
-        puts 'Fake device 已經註冊，略過 OAuth...'
+
+        resp = get("#{BOOK_DL_URL}?book_uni_id=#{book_id}&t=#{Time.now.to_i}")
+        OpenStruct.new(JSON.parse(resp.body.to_s))
       end
-
-      puts '取得書籍資料下載 Token...'
-      timestamp = Time.now.to_i
-      resp = get("#{BOOK_DL_URL}?book_uni_id=#{book_id}&t=#{timestamp}")
-
-      OpenStruct.new(JSON.parse(resp.body.to_s))
     end
 
     def login
@@ -114,8 +135,13 @@ module BooksDL
     def get(url, headers = {})
       headers = build_headers({ Cookie: cookie }, headers)
       response = HTTP.headers(headers).get(url)
-      save_cookie(response)
 
+      if response.status >= 400
+        file_name = URI(url).path.split('/').last
+        raise "取得 `#{file_name}` 失敗。 Status: #{response.status}"
+      end
+
+      save_cookie(response)
       response
     end
 
