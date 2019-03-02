@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-group :development do
-  gem 'awesome_print'
-  gem 'byebug'
-  gem 'rspec'
-end
-
 gem 'http'
 gem 'nokogiri'
 gem 'rubyzip', '>= 1.0.0'
+
+# for development
+gem 'awesome_print'
+gem 'byebug'
+gem 'rspec'
