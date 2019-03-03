@@ -42,9 +42,6 @@ module BooksDL
                end
 
       result.force_encoding('utf-8')
-    rescue
-      # ap result
-      raise
     end
 
     def self.img_checksum
