@@ -4,7 +4,7 @@ module BooksDL
 
     COOKIE_FILE_NAME = 'cookie.json'.freeze
     IMAGE_EXTENSIONS = %w[.bmp .gif .ico .jpeg .jpg .tiff .tif .svg .png .webp].freeze
-    NO_AUTH_EXTENSIONS = %w[css].freeze
+    NO_AUTH_EXTENSIONS = %w[.css .ttc .otf .ttf .eot .woff .woff2].freeze
 
     # API ENDPOINTS
     #
