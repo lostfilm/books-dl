@@ -23,14 +23,14 @@ module BooksDL
     def initialize(book_id)
       @book_id = book_id
       load_existed_cookies
-      @encoded_token ||= CGI.escape(info.download_token)
+      @encoded_token ||= CGI.escape(info.download_token.to_s)
     end
 
     def fetch(path)
       url = "#{info.download_link}#{path}"
       ext = File.extname(path).downcase
 
-      if NO_AUTH_EXTENSIONS.include?(ext)
+      if NO_AUTH_EXTENSIONS.include?(ext) || info.encrypt_type == 'none'
         get(url).body.to_s
       elsif IMAGE_EXTENSIONS.include?(ext)
         checksum = Utils.img_checksum
