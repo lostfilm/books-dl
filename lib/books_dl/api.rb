@@ -128,7 +128,6 @@ module BooksDL
       print('請輸入帳號：')
       username = gets.chomp
       password = STDIN.getpass('請輸入密碼:').chomp
-
       [username, password]
     end
 
@@ -192,7 +191,7 @@ module BooksDL
       captcha_img_url = "#{LOGIN_HOST}#{captcha_img_path}"
 
       img = get(captcha_img_url).body
-      File.open('captcha.png', 'w').write(img)
+      File.open('captcha.png', 'wb+') { |file| file.write(img) }
       begin
         `open ./captcha.png`
       rescue StandardError

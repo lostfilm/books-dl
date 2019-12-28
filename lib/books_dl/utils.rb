@@ -7,7 +7,8 @@ module BooksDL
     end
 
     def self.generate_key(url, download_token)
-      file_path = CGI.unescape(url.match(%r{https://(.*?/){3}.*?(?<rest_part>/.+)})[:rest_part])
+      puts url
+      file_path = CGI.unescape(url.match(%r|https://(.*?/){3}.*?(?<rest_part>/.+)|)[:rest_part])
       md5_chars = Digest::MD5.hexdigest(file_path).split('')
       partition = md5_chars.each_slice(4).reduce(0) do |num, chars|
         (num + Integer("0x#{chars.join}")) % 64
