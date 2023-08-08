@@ -14,10 +14,10 @@ module BooksDL
     LOGIN_PAGE_URL = "https://cart.books.com.tw/member/login?url=#{CART_URL}".freeze
     LOGIN_ENDPOINT_URL = 'https://cart.books.com.tw/member/login_do/'.freeze
 
-    DEVICE_REG_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/DeviceReg'.freeze
-    OAUTH_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/LoginURL?type=&device_id=&redirect_uri=https%3A%2F%2Fviewer-ebook.books.com.tw%2Fviewer%2Flogin.html'.freeze
-    OAUTH_ENDPOINT_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/MemberLogin?code='.freeze
-    BOOK_DL_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/BookDownLoadURL'.freeze
+    DEVICE_REG_URL = 'https://appapi-ebook.books.com.tw/V1.6/CMSAPIApp/DeviceReg'.freeze
+    OAUTH_URL = 'https://appapi-ebook.books.com.tw/V1.6/CMSAPIApp/LoginURL?type=&device_id=&redirect_uri=https%3A%2F%2Fviewer-ebook.books.com.tw%2Fviewer%2Flogin.html'.freeze
+    OAUTH_ENDPOINT_URL = 'https://appapi-ebook.books.com.tw/V1.6/CMSAPIApp/MemberLogin?code='.freeze
+    BOOK_DL_URL = 'https://appapi-ebook.books.com.tw/V1.6/CMSAPIApp/BookDownLoadURL'.freeze
     # rubocop:enable Metrics/LineLength
 
     def initialize(book_id)
@@ -102,15 +102,18 @@ module BooksDL
       }
 
       post(LOGIN_ENDPOINT_URL, data, headers)
-      return if logged?
+      headers_logged = {
+        'Referer': 'https://cart.books.com.tw/member/login'
+      }
+      return if logged?(headers_logged)
 
       puts "#{'-' * 10} 登入失敗，請再試一次 #{'-' * 10}\n"
       login
     end
 
-    def logged?
+    def logged?(headers={})
       @logged = begin
-        response = get(CART_URL)
+        response = get(CART_URL, headers)
 
         response.status == 200
       end
