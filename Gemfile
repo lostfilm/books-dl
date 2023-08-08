@@ -8,3 +8,5 @@ gem 'rubyzip', '>= 1.0.0'
 gem 'awesome_print'
 gem 'byebug'
 gem 'rspec'
+
+gem 'http-parser', '~> 1.2.3'
